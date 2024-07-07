@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Pohon B Plus} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Memori & 256MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Dr. Agus Heisenberg sedang merancang sebuah basis data untuk menyimpan data-data agen OWCA. Seiring meningkatnya jumlah agen OWCA, proses pencarian agen pada basis data tersebut semakin lambat. Lalu, Dr. Agus Heisenberg menemukan bahwa proses pencarian dapat dipercepat dengan struktur data B+ Tree. 
+
+Sebagai agen dengan kemampuan programming yang handal, Dr. Agus memintamu untuk membuatkan ADT B+ Tree untuknya. Karena data agen lama tetap disimpan, B+ Tree yang dibuat cukup mengimplementasi fitur insertion. Dr. Agus telah meringankan tugasmu dengan membuatkan template program pada link \href{https://drive.google.com/drive/folders/19CcSmHoxypupEgl6w9DckooEcUfqM3qY?usp=sharing}{berikut}
+
+Bantulah Dr. Agus dengan melengkapi program ADT B+ Tree yang telah dia berikan.
+
+Visualisasi proses insertion B+ Tree dapat mereferensi pada website \href{https://www.cs.usfca.edu/~galles/visualization/BTree.html}{berikut}
+
+\subsection*{Format Masukan}
+
+Baris pertama terdiri dari dua bilangan bulat positif $D$ ($1 \leq D \leq 10$) dan $N$ ($1 \leq N \leq 10^{5}$) yang masing-masing menyatakan derajat pohon dan jumlah operasi.
+
+$N$ baris berikutnya berisi dua bilangan bulat positif $O$ ($1 \leq O \leq 2$) dan $K$ ($1 \leq N \leq 10^{9}$) yang masing-masing menyatakan operasi yang dilakukan dan nilai operasi tersebut
+
+\subsection*{Format Keluaran}
+
+Format keluaran sudah ditentukan dalam program template pada link \href{https://drive.google.com/drive/folders/19CcSmHoxypupEgl6w9DckooEcUfqM3qY?usp=sharing}{berikut}
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+5 7
+1 7
+1 9
+2 13
+1 13
+1 15
+1 8
+2 7
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+Not Found
+1
+Found
+B+ Tree Akhir:
+-7
+-8
+9
+-9
+-13
+-15
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+B+ Tree yang terbentuk seperti pada gambar \href{https://drive.google.com/file/d/1pot9zNXOrSjS-J8ebY-b_D8aXAC7xbT4/view?usp=sharing}{berikut}
+
+\end{document}

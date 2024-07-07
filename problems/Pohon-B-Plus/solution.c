@@ -19,14 +19,88 @@ typedef struct BPTree {
 } BPTree;
 
 /* Function Headers */
+
+/**
+ * @brief Create a new Node
+ * 
+ * @param degree Degree of the B+ Tree
+ * @param isLeaf Whether the Node is a Leaf Node or not
+ * @return Node* Pointer to the newly created Node
+ */
 Node* createNode(int degree, bool isLeaf);
+
+/**
+ * @brief Create a new B+ Tree
+ * 
+ * @param degree Degree of the B+ Tree
+ * @return BPTree* Pointer to the newly created B+ Tree
+ */
 BPTree* createBPTree(int degree);
+
+/**
+ * @brief Insert a key into the B+ Tree
+ * 
+ * @param tree Pointer to the B+ Tree
+ * @param key Key to be inserted
+ * @return void
+ */
 void insert(BPTree *tree, int key);
+
+/**
+ * @brief Insert a key into the Node
+ * 
+ * The function inserts a key into the Node.
+ * If the Node is a leaf node, insert the key into the Node.
+ * If the Node is an internal node, insert the key into the child node.
+ * If the child node is full after insertion, split the child node.
+ * If there is duplicate key, insert it to the leftest of the same key
+ * 
+ * @param node Pointer to the Node
+ * @param key Key to be inserted
+ * @return void
+ */
 void insertNode(Node *node, int key);
+
+/**
+ * @brief Split the child node of the Node
+ * 
+ * The new child node is always bigger or equal to the original child node.
+ * 
+ * @param node Pointer to the Node
+ * @param i Index of the child node to be split
+ * @return void
+ */
 void splitChild(Node *node, int i);
+
+/**
+ * @brief Print the B+ Tree
+ * 
+ * @param tree Pointer to the B+ Tree
+ * @return void
+ */
 void printTree(BPTree *tree);
+
+/**
+ * @brief Print the Node
+ * 
+ * @param node Pointer to the Node
+ * @param space Number of spaces to be printed
+ * @return void
+ */
 void printNode(Node *node, int space);
+
+/**
+ * @brief Search for a key in the B+ Tree
+ * 
+ * This function also prints the path taken to find the key.
+ * 
+ * @param node Pointer to the Node
+ * @param key Key to be searched
+ * @return void
+ */
 void search(Node *node, int key);
+
+/* Implementations */
 
 /* Implementations */
 Node *createNode(int degree, bool isLeaf) {
@@ -148,8 +222,33 @@ void splitChild(Node *node, int i) {
     }
 }
 
+void search(Node *node, int key) {
+    Node *current = node;
+    while (!current->isLeaf) {
+        int i = 0;
+
+        while (i < current->numKeys && key >= current->keys[i]) {
+            i++;
+        }
+
+        current = current->children[i];
+        printf("%d\n", i + 1);
+    }
+
+    int i = 0;
+    while (i < current->numKeys && key > current->keys[i]) {
+        i++;
+    }
+
+    if (i < current->numKeys && key == current->keys[i]) {
+        printf("Found\n");
+    } else {
+        printf("Not Found\n");
+    }
+}
+
 void printTree(BPTree *tree) {
-    printf("RESULT:\n");
+    printf("B+ Tree Akhir:\n");
     printNode(tree->root, 0);
 }
 
@@ -179,31 +278,6 @@ void printNode(Node *node, int space) {
             printf("%d\n", node->keys[i]);
             printNode(node->children[i + 1], space);
         }
-    }
-}
-
-void search(Node *node, int key) {
-    Node *current = node;
-    while (!current->isLeaf) {
-        int i = 0;
-
-        while (i < current->numKeys && key >= current->keys[i]) {
-            i++;
-        }
-
-        current = current->children[i];
-        printf("%d\n", i + 1);
-    }
-
-    int i = 0;
-    while (i < current->numKeys && key > current->keys[i]) {
-        i++;
-    }
-
-    if (i < current->numKeys && key == current->keys[i]) {
-        printf("Found\n");
-    } else {
-        printf("Not Found\n");
     }
 }
 
