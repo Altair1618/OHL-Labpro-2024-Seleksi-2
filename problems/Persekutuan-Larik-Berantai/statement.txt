@@ -3,7 +3,7 @@ Memory Limit: 512 Mb
 Language: Java
 tag: Data Structure (LinkedList) and OOP Concept
 
-Deskripsi
+DESKRIPSI
 Asep Spakbor sedang berlatih berbahasa Jawa, ia juga orang yang sangat gemar dengan berhitung.
 
 Suatu saat ia sedang mengide untuk membuat program untuk menghitung FPB (Faktor Persekutuan Terbesar) dari dua bilangan.
@@ -14,6 +14,7 @@ Dari sebuah larik berantai, Asep Spakbor ingin memasukkan sebuah bilangan hasil 
 
 Asep Spakbor merasa kesusahan dalam membuat larik berantai dalam bahasa Jawa karena terbiasa dengan bahasa Assembly.
 
+KETENTUAN
 Bantulah Asep Spakbor dalam membuat program tersebut dalam bahasa Jawa.
 
 Program juga harus dibuat dengan menggunakan prinsip OOP dan kelas larik berantai serta fungsi FPB harus dibuat sendiri. Selain output yang benar, kode program kalian juga akan dinilai secara manual.

@@ -1,0 +1,78 @@
+Time Limit: 3s
+Memory Limit: 512 Mb
+Language: Java
+tag: Data Structure (CircularLinkedList) and OOP Concept
+
+DESKRIPSI
+Purry the Platypus senang menonton sebuah variety show bernama The Walking Man.
+
+Pada sebuah episode, ada sebuah permainan yang disebut The Circling Survivor. 
+
+Pemain sejumlah N akan berdiri di atas sebuah lingkaran dan berjalan mengelilingi lingkaran tersebut. 
+
+Setiap pemain akan diberikan sebuah bilangan bulat positif K. 
+
+Pemain akan berjalan searah jarum jam dan setiap kali pemain berjalan sebanyak K langkah,
+pemain yang berada di posisi tersebut akan dikeluarkan dari permainan.
+
+Permainan akan berakhir ketika hanya tersisa satu pemain.
+
+KETENTUAN
+Purry ingin membuat program untuk menentukan pemain mana yang akan bertahan di akhir permainan.
+Beserta dengan progress dalam permainan tersebut.
+
+Purry memiliki ketentuan bahwa program harus menggunakan konsep Larik Tertaut Melingkar.
+Purry juga ingin program tersebut dibuat dengan menggunakan prinsip PBO menggunakan bahasa Jawa.
+
+Asumsikan:
+- N > 0 dan K > 0
+- N > K
+- Pemain memiliki nomor terurut dari 1
+- Output adalah orang tereliminasi hingga tersisa satu pemain
+***sebuah kamus:***
+Larik Tertaut Melingkar -> Circular Linked List
+PBO -> OOP (Object Oriented Programming)
+Jawa -> Java
+
+Contoh Input 1
+7
+3
+
+Contoh Output 1
+3
+6
+2
+7
+5
+1
+Survivor: 4
+
+Penjelasan
+Ada 7 pemain yang berjalan searah jarum jam.
+Setiap pemain akan dikeluarkan setiap 3 langkah.
+Urutan pemain adalah sebagai berikut:
+1) 1 2 3 4 5 6 7 
+- pemain ke-3 dikeluarkan
+- perhitungan dimulai dari pemain ke-4, karena pemain yang dikeluarkan sebelumnya adalah 3
+2) 1 2 4 5 6 7
+- pemain ke-6 dikeluarkan
+- perhitungan dimulai dari pemain ke-7, karena pemain yang dikeluarkan sebelumnya adalah 6
+3) 1 2 4 5 7
+- pemain ke-2 dikeluarkan
+4) 1 4 5 7
+5) 1 4 5
+6) 1 4
+7) 4
+- pemain ke-4 adalah pemenangnya
+
+Contoh Input 2
+5
+3
+
+Contoh Output 2
+3
+1
+5
+2
+Survivor: 4
+
