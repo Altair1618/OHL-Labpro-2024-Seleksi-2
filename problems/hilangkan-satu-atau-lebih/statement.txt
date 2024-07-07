@@ -1,0 +1,31 @@
+﻿Time Limit: 2s
+Memory Limit: 256 Mb
+tag: DP, Bruteforce
+Comment
+
+
+Deskripsi
+Anda diberikan sebuah array 𝐴 yang terdiri dari 𝑛 bilangan bulat.
+
+
+Anda bisa menghapus paling banyak satu elemen dari array ini. Sehingga, panjang akhir array adalah 𝑛−1 atau 𝑛.
+
+
+Tugas Anda adalah menghitung panjang maksimal continuous subarray yang strictly increasing dari array yang tersisa.
+
+
+Ingat bahwa continuous subarray 𝐴 dengan indeks dari 𝑙 ke  adalah 𝐴[𝑙…𝑟]=𝐴[𝑙],𝐴[𝑙+1],...,𝐴[𝑟. Subarray 𝐴[𝑙…𝑟] disebut strictly increasing jika 𝐴[𝑙]<𝐴[𝑙+1]<⋯<𝐴[𝑟].
+
+
+Input
+Baris pertama berisi sebuah bilangan bulat 𝑛 (2≤𝑛≤2⋅105) — banyaknya elemen pada subarray 𝐴. Baris kedua berisi 𝑛 bilangan bulat 𝐴[1],𝐴[2],...,𝐴[𝑛] (1≤𝐴[𝑖]≤109), di mana 𝐴[𝑖] adalah elemen ke-𝑖 dari 𝐴.
+Output
+Cetak sebuah bilangan bulat yaitu panjang maksimal continuous subarray yang strictly increasing dari array 𝐴 setelah menghapus paling banyak satu elemen.
+
+
+Contoh Input 1
+5
+1 2 5 3 4
+Contoh Output 1
+4
+Pada contoh ini, Anda bisa menghapus 𝐴[3]=5. Kemudian array berubah menjadi [1,2,3,4] dan panjang continuous subarray yang strictly increasing adalah 4.
