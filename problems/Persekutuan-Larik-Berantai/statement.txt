@@ -1,0 +1,47 @@
+Time Limit: 3s
+Memory Limit: 512 Mb
+Language: Java
+tag: Data Structure (LinkedList) and OOP Concept
+
+Deskripsi
+Asep Spakbor sedang berlatih berbahasa Jawa, ia juga orang yang sangat gemar dengan berhitung.
+
+Suatu saat ia sedang mengide untuk membuat program untuk menghitung FPB (Faktor Persekutuan Terbesar) dari dua bilangan.
+
+Akan tetapi agar lebih bervariasi, ia ingin membuat program tersebut dengan menggunakan konsep larik berantai.
+
+Dari sebuah larik berantai, Asep Spakbor ingin memasukkan sebuah bilangan hasil FPB diantara dua bilangan yang ada di dalam larik berantai tersebut.
+
+Asep Spakbor merasa kesusahan dalam membuat larik berantai dalam bahasa Jawa karena terbiasa dengan bahasa Assembly.
+
+Bantulah Asep Spakbor dalam membuat program tersebut dalam bahasa Jawa.
+
+Program juga harus dibuat dengan menggunakan prinsip OOP dan kelas larik berantai serta fungsi FPB harus dibuat sendiri. Selain output yang benar, kode program kalian juga akan dinilai secara manual.
+
+***sebuah kamus:***
+Larik Berantai -> Linked List
+FPB -> GCD (Greatest Common Divisor)
+Jawa -> Java
+
+Contoh Input 1
+5
+20 33 6 36 27
+
+Contoh Output 1
+[20, 1, 33, 3, 6, 6, 36, 9, 27]
+
+Penjelasan
+Angka 5 menunjukkan banyaknya bilangan yang akan dimasukkan ke dalam linked list.
+GCD dari 20 dan 33 adalah 1, maka 1 dimasukkan diantara 20 dan 33.
+GCD dari 33 dan 6 adalah 3, maka 3 dimasukkan diantara 33 dan 6.
+dst.
+
+Contoh Input 2
+1
+99
+
+Contoh Output 2
+[99]
+
+Penjelasan
+Tiada bilangan lain yang bisa dihitung GCD-nya, maka output sama dengan input.
