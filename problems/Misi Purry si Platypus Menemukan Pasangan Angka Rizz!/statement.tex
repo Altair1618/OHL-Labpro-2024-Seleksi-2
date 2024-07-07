@@ -1,0 +1,115 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+    \section*{Misi Purry si Platypus: Menemukan Pasangan Angka Rizz!} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 4s \\    % jangan lupa ganti time limit
+        Batas Memori & 256MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Pada suatu hari, Purry si Platypus lagi jalan-jalan dan tiba-tiba ketemu puzzle yang bikin otak mikir keras kayak sigma! Ada empat angka positif $a, b, c, d$ dengan $a < c$ dan $b < d$. Tugas Purry adalah mencari sepasang angka $x$ dan $y$ yang memenuhi syarat berikut:
+
+\begin{itemize}
+    \item $a < x \leq c$
+    \item $b < y \leq d$
+    \item $x \cdot y$ habis dibagi oleh $a \cdot b$
+\end{itemize}
+
+Purry si Platypus harus menemukan pasangan angka $x$ dan $y$ yang sesuai, tapi mungkin aja pasangan yang dimaksud nggak ada. Sus banget, kan?
+
+Bantuin Purry si Platypus buat nemuin angka-angka itu biar dia bisa lanjut jalan-jalan lagi! Sheesh, puzzle ini bener-bener rizz banget! Kalau berhasil, Purry bakal flex ke semua temennya!
+
+\subsection*{Format Masukan}
+
+Baris pertama input berisi sebuah bilangan bulat $t$ ($1 \leq t \leq 10$), jumlah kasus uji.
+
+Setiap kasus uji berisi empat bilangan bulat $a, b, c,$ dan $d$ ($1 \leq a < c \leq 10^9, 1 \leq b < d \leq 10^9$).
+
+
+\subsection*{Format Keluaran}
+
+Untuk setiap kasus uji, cetak sepasang angka $x$ dan $y$ di mana $a < x \leq c$ dan $b < y \leq d$ sedemikian sehingga $x \cdot y$ habis dibagi oleh $a \cdot b$. Jika terdapat beberapa jawaban yang memenuhi syarat, cetak salah satunya. Jika tidak ada pasangan angka yang memenuhi syarat tersebut, maka cetak $-1$ $-1$.
+
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+10
+1 1 2 2
+8 9 14 18
+3 4 5 8
+36 60 48 87
+12 20 14 25
+1024 729 373248 730
+1024 729 373247 730
+5040 20310 40319 1000000000
+999999999 999999999 1000000000 1000000000
+168435456 168435456 1000000000 1000000000
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+2 2
+12 18
+4 6
+-1 -1
+-1 -1
+373248 730
+-1 -1
+5041 102362400
+-1 -1
+170459136 998614806
+\end{lstlisting}
+\end{multicols}
+
+\end{document}
