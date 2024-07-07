@@ -15,5 +15,6 @@ tc
 *.in
 *.out
 *.ans
+*.class
 runner
 solution
