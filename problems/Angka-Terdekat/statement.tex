@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Angka Terdekat} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Memori & 256MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Purry tidak sengaja tertangkap oleh Dr. Asep Spakbor. Pada dinding penjara, Purry menemukan sebuah teka-teki dengan sebuah deret angka. Tertulis disana, Purry harus dapat menemukan angka terdekat yang muncul sebelumnya dalam deret dan memiliki nilai lebih kecil dari setiap angka pada deret agar bisa kabur. Bantulah Purry menyelesaikan tantangan tersebut!
+
+\subsection*{Format Masukan}
+
+Baris pertama terdiri dari satu bilangan bulat positif $T$ ($1 \leq T \leq 100$)  yang banyak kasus.
+
+Setiap kasus terdiri atas 2 baris. Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 10^{6}$)  yang menyatakan panjang deret angka.
+Baris berikutnya berisi $N$ bilangan $X_i$ ($1 \leq X_i \leq 10^{9}$) yang menyatakan angka-angka pada deret.
+
+Jumlah N $\times$ T tidak akan melebihi $10^5$
+
+\subsection*{Format Keluaran}
+
+$N$ bilangan yang menyatakan bilangan yang lebih kecil dan muncul paling terakhir sebelum bilangan tersebut. Keluarkan -1 apabila tidak ada bilangan lebih kecil yang muncul sebelumnya.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+1
+8
+1 3 4 2 5 3 4 2
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+-1 1 3 1 2 2 3 1
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Berikut adalah penjelasan untuk masing-masing keluaran pada contoh 1:
+
+\begin{enumerate}
+\item Tidak ada nilai yang lebih kecil dari 1 yang muncul sehingga dikeluarkan -1
+\item Bilangan terakhir yang lebih kecil dari 3 adalah 1 pada indeks 1 sehingga dikeluarkan 1
+\item Bilangan terakhir yang lebih kecil dari 4 adalah 3 pada indeks 2 sehingga dikeluarkan 3
+\item Bilangan terakhir yang lebih kecil dari 2 adalah 1 pada indeks 1 sehingga dikeluarkan 1
+\item Bilangan terakhir yang lebih kecil dari 5 adalah 2 pada indeks 4 sehingga dikeluarkan 2
+\item Bilangan terakhir yang lebih kecil dari 3 adalah 2 pada indeks 4 sehingga dikeluarkan 2
+\item Bilangan terakhir yang lebih kecil dari 4 adalah 3 pada indeks 6 sehingga dikeluarkan 3
+\item Bilangan terakhir yang lebih kecil dari 2 adalah 1 pada indeks 1 sehingga dikeluarkan 1
+\end{enumerate}
+
+\end{document}
