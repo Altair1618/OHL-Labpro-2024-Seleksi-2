@@ -1,0 +1,37 @@
+﻿Time Limit: 1s
+Memory Limit: 256 Mb
+tag: Data Structure (stack)
+
+
+Deskripsi
+Dua orang sedang bermain permainan dengan sebuah string 𝑠, yang terdiri dari huruf-huruf latin kecil.
+
+
+Pada giliran seorang pemain, dia harus memilih dua huruf berurutan yang sama dalam string dan menghapusnya.
+
+
+Sebagai contoh, jika string adalah "xaax" maka hanya ada satu kemungkinan langkah, yaitu menghapus "aa", sehingga string menjadi "xx". Pemain yang tidak bisa membuat langkah akan kalah.
+
+
+Tugas Anda adalah menentukan pemain mana yang akan menang jika keduanya bermain secara optimal.
+
+
+Input
+Baris pertama terdiri dari sebuah string 𝑠, yang terdiri dari huruf-huruf latin kecil (1≤|𝑠|≤100000), di mana |𝑠| berarti panjang string 𝑠.
+
+
+Output
+Jika pemain pertama menang, cetak "Yes". Jika pemain kedua menang, cetak "No".
+
+
+Contoh Input 1
+abacaba
+Contoh Output 1
+No
+Pemain pertama tidak dapat melakukan pergerakan pertama, sehingga dia kalah.
+
+
+Contoh Input 2
+iiq
+Contoh Output 2
+Yes

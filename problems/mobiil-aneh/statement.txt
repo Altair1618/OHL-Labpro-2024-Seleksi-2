@@ -1,0 +1,53 @@
+﻿Time Limit: 3s
+Memory Limit: 256 Mb
+tag: DFS-BFS, Graph, Bruteforce
+Comment
+
+
+Deskripsi
+Nesy, bergegas pergi ke kantor. Dia sarapan dan duduk di mobilnya. Sayangnya, ketika dia membuka navigator GPS-nya, dia menemukan bahwa beberapa jalan di Bandungpolis, kota tempat tinggalnya, ditutup karena pekerjaan jalan. Selain itu, Nesy memiliki beberapa masalah dengan setir, sehingga dia hanya bisa membuat tidak lebih dari dua belokan dalam perjalanannya ke kantor.
+
+
+Bandungpolis terlihat seperti grid dengan 𝑛 baris dan 𝑚 kolom. Nesy harus menemukan jalan dari rumahnya ke kantor yang memiliki tidak lebih dari dua belokan dan tidak mengandung sel dengan pekerjaan jalan, atau tentukan bahwa itu tidak mungkin dan Nesy harus bekerja dari rumah.
+
+
+Sebuah belokan adalah perubahan arah gerakan. Mobil Nesy hanya bisa bergerak ke kiri, ke kanan, ke atas, dan ke bawah. Awalnya Nesy bisa memilih arah mana pun.
+
+
+Input
+Baris pertama berisi dua bilangan bulat 𝑛 dan 𝑚 (1≤𝑛,𝑚≤1000) — jumlah baris dan kolom pada grid.
+
+
+Masing-masing dari 𝑛 baris berikutnya berisi 𝑚 karakter yang menunjukkan baris yang sesuai dari grid. Karakter-karakter berikut dapat muncul:
+
+
+"." — sel kosong;
+"*" — sel dengan pekerjaan jalan;
+"S" — sel di mana rumah Igor berada;
+"T" — sel di mana kantor Igor berada.
+Dijamin bahwa "S" dan "T" muncul tepat satu kali masing-masing.
+
+
+Output
+Dalam satu baris cetak YES jika ada jalur antara rumah Igor dan kantornya dengan tidak lebih dari dua belokan, dan NO jika tidak ada.
+
+
+Contoh Input 1
+5 5
+..S..
+****.
+T....
+****.
+.....
+Contoh Output 1
+YES
+Contoh Input 2
+5 5
+S....
+****.
+.....
+.****
+..T..
+Contoh Output 2
+NO
+Pada contoh kedua, hal ini tidak memungkinkan karena Nesy memerlukan setidaknya 4 belokan, sehingga tidak ada jalur dengan tidak lebih dari 2 belokan.
