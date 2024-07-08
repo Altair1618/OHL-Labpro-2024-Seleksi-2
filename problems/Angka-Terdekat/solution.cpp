@@ -2,10 +2,10 @@
 
 #define ll                      long long
 #define all(v)                  (v).begin(), (v).end()
-#define forn(var, n)            for (ll (var) = 0; (var) < (n); ++(var))
-#define forr(var, start, end)   for (ll (var) = (start); (var) < (end); ++(var))
-#define fori(var, start, end)   for (ll (var) = (start); (var) > (end); --(var))
-#define fora(var, obj)          for (auto (var) : (obj))
+#define forn(var, n)            for (ll var = 0; var < n; ++var)
+#define forr(var, start, end)   for (ll var = start; var < end; ++var)
+#define fori(var, start, end)   for (ll var = start; var > end; --var)
+#define fora(var, obj)          for (auto var : obj)
 #define MOD1                    (ll) (1e9 + 7)
 #define MOD9                    (ll) (998244353)
 #define prints(x)               cout << (x) << " "
