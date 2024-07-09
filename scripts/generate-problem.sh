@@ -28,6 +28,7 @@ cd "$PROBLEM_SLUG"
 # rm -f *.aux *.log *.dvi *.out *.toc *.synctex.gz
 
 g++ solution.cpp -O2 -Wall -o solution -std=$CPP_VERSION
+# gcc solution.c -O2 -Wall -o solution
 $TCFRAME_HOME/scripts/tcframe build
 ./runner
 cd - > /dev/null

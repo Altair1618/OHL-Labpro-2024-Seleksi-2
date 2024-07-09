@@ -224,6 +224,8 @@ void splitChild(Node *node, int i) {
 
 void search(Node *node, int key) {
     Node *current = node;
+
+    int indexes[50], idx = 0;
     while (!current->isLeaf) {
         int i = 0;
 
@@ -232,7 +234,7 @@ void search(Node *node, int key) {
         }
 
         current = current->children[i];
-        printf("%d\n", i + 1);
+        indexes[idx] = i + 1; idx++;
     }
 
     int i = 0;
@@ -241,14 +243,20 @@ void search(Node *node, int key) {
     }
 
     if (i < current->numKeys && key == current->keys[i]) {
-        printf("Found\n");
+        printf("YES ");
     } else {
-        printf("Not Found\n");
+        printf("NO ");
     }
+
+    printf("%d", idx);
+    for (int j = 0; j < idx; j++) {
+        printf(" %d", indexes[j]);
+    }
+    printf("\n");
 }
 
 void printTree(BPTree *tree) {
-    printf("B+ Tree Akhir:\n");
+    printf("RESULT:\n");
     printNode(tree->root, 0);
 }
 
