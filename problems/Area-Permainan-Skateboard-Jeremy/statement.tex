@@ -1,0 +1,105 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+    \section*{Area Permainan Skateboard Jeremy}
+    
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\ 
+        Batas Memori & 256MB \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Jeremy sedang berada di \textit{Old Abandoned Amusement Park} dan mereka memutuskan untuk membuat sebuah lintasan skateboard zigzag terpanjang di taman tersebut. Taman ini dapat direpresentasikan sebagai sebuah pohon biner di mana setiap simpul merupakan titik persinggahan dan setiap cabang adalah jalur yang dapat dilalui. Bantulah Jeremy untuk menemukan jalur zigzag terpanjang di dalam taman tersebut!
+
+\subsection*{Format Masukan}
+
+Masukan terdiri dari beberapa baris:
+\begin{itemize}
+    \item Baris pertama berisi sebuah bilangan bulat $N$ $(1 \leq N \leq 10^5)$ yang merupakan jumlah simpul dalam pohon.
+    \item Baris berikutnya berisi $N$ bilangan bulat yang merepresentasikan nilai setiap simpul dalam urutan level-order traversal. Gunakan $-1$ untuk menunjukkan simpul kosong (null).
+    \item Gunakan struktur data Pohon Biner
+\end{itemize}
+
+\subsection*{Format Keluaran}
+
+Keluaran adalah sebuah bilangan bulat yang merupakan panjang jalur zigzag terpanjang di pohon tersebut.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+15
+1 -1 2 3 4 -1 -1 5 6 -1 7 -1 -1 -1 8
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+3
+\end{lstlisting}
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+Dalam contoh ini, pohon biner yang dibentuk adalah sebagai berikut:
+\begin{verbatim}
+        1
+       / \
+      2   3
+     / \
+    4   5
+       / \
+      6   7
+           \
+            8
+\end{verbatim}
+
+Jalur zigzag terpanjang yang bisa diambil adalah 3 langkah:
+$1 \xrightarrow{} 2 \xrightarrow{} 5 \xrightarrow{} 6.$
+
+\end{document}
