@@ -1,0 +1,111 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Perlawanan} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Memori & 256MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Dua orang sedang bermain permainan dengan sebuah string $S$, yang terdiri dari huruf-huruf latin kecil. Pada giliran seorang pemain, dia harus memilih dua huruf berurutan yang sama dalam string dan menghapusnya.
+
+Sebagai contoh, jika $S$ adalah "xaax" maka hanya ada satu kemungkinan langkah, yaitu menghapus "aa", sehingga $S$ menjadi "xx". Pemain yang tidak bisa membuat langkah akan kalah.
+
+Tugas Anda adalah menentukan pemain mana yang akan menang jika keduanya bermain secara optimal.
+
+\subsection*{Format Masukan}
+
+Baris pertama terdiri dari sebuah string $S$, yang terdiri dari huruf-huruf latin kecil ($1 \leq |S| \leq 10^{5}$), di mana $|S|$ berarti panjang string $S$.
+
+\subsection*{Format Keluaran}
+
+Jika pemain pertama menang, cetak "Yes" (tanpa tanda petik). Jika pemain kedua menang, cetak "No".
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+abacaba
+\end{lstlisting}
+\vfill
+\null
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+No
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 2}
+\begin{lstlisting}
+iiq
+\end{lstlisting}
+\vfill
+\null
+\columnbreak
+\subsection*{Contoh Keluaran 2}
+\begin{lstlisting}
+Yes
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+Pada kasus pertama, pemain pertama tidak dapat melakukan pergerakan pertama, sehingga dia kalah.
+
+\end{document}

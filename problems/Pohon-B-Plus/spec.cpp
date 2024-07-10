@@ -15,11 +15,6 @@ protected:
     vector<vector<int>> ansf;
     vector<string> anss, tree;
 
-    // int D, N, searchCount;
-    // vector<int> val, qval, qtype, ansc;
-    // vector<vector<int>> ansf;
-    // vector<string> anss, tree;
-
     void InputFormat() {
         LINE(D, N);
         LINES(qtype, qval) % SIZE(N);

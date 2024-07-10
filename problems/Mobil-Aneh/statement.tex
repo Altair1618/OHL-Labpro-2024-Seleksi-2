@@ -1,0 +1,126 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Mobil Aneh} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 3s \\    % jangan lupa ganti time limit
+        Batas Memori & 256MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Nesy, bergegas pergi ke kantor. Dia sarapan dan duduk di mobilnya. Sayangnya, ketika dia membuka navigator GPS-nya, dia menemukan bahwa beberapa jalan di Bandungpolis, kota tempat tinggalnya, ditutup karena pekerjaan jalan. Selain itu, Nesy memiliki beberapa masalah dengan setir, sehingga dia hanya bisa membuat tidak lebih dari dua belokan dalam perjalanannya ke kantor.
+
+Bandungpolis terlihat seperti grid dengan $N$ baris dan $M$ kolom. Nesy harus menemukan jalan dari rumahnya ke kantor yang memiliki tidak lebih dari dua belokan dan tidak mengandung sel dengan pekerjaan jalan, atau tentukan bahwa itu tidak mungkin dan Nesy harus bekerja dari rumah.
+
+Sebuah belokan adalah perubahan arah gerakan. Mobil Nesy hanya bisa bergerak ke kiri, ke kanan, ke atas, dan ke bawah. Awalnya Nesy bisa memilih arah mana pun.
+
+\subsection*{Format Masukan}
+
+Baris pertama berisi dua bilangan bulat $N$ dan $M$ ($1 \leq N, M \leq 1000$) — jumlah baris dan kolom pada grid.
+
+Masing-masing dari $N$ baris berikutnya berisi $M$ karakter yang menunjukkan baris yang sesuai dari grid. Karakter-karakter berikut dapat muncul:
+
+"." — sel kosong; \\
+"*" — sel dengan pekerjaan jalan; \\
+"S" — sel di mana rumah Igor berada; \\
+"T" — sel di mana kantor Igor berada. \\
+Dijamin bahwa "S" dan "T" muncul tepat satu kali masing-masing.
+
+\subsection*{Format Keluaran}
+
+Dalam satu baris cetak YES jika ada jalur antara rumah Igor dan kantornya dengan tidak lebih dari dua belokan, dan NO jika tidak ada.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+5 5
+..S..
+****.
+T....
+****.
+.....
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+YES
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 2}
+\begin{lstlisting}
+5 5
+S....
+****.
+.....
+.****
+..T..
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 2}
+\begin{lstlisting}
+NO
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Pada contoh kedua, hal ini tidak memungkinkan karena Nesy memerlukan setidaknya 4 belokan, sehingga tidak ada jalur dengan tidak lebih dari 2 belokan.
+
+\end{document}
