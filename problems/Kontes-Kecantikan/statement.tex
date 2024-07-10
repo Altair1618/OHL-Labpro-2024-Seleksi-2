@@ -1,0 +1,113 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+    \section*{Kontes Kecantikan di Danville}
+    
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\ 
+        Batas Memori & 256MB \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Wali kota Danville memutuskan untuk mengadakan kontes kecantikan di kota tersebut. Setiap peserta kontes diberi penilaian berdasarkan kecantikan mereka. Tugas Anda adalah membantu mereka menemukan peserta dengan penilaian ke-K tertinggi di antara semua peserta.
+
+\subsection*{Format Masukan}
+
+Masukan terdiri dari beberapa baris:
+\begin{itemize}
+    \item Baris pertama berisi dua bilangan bulat $N$ $(1 \leq N \leq 100000)$ dan $K$ $(1 \leq K \leq N)$, masing-masing menyatakan jumlah peserta dan penilaian ke berapa yang ingin dicari.
+    \item Baris berikutnya berisi $N$ bilangan bulat yang merupakan penilaian dari setiap peserta kontes.
+\end{itemize}
+
+\subsection*{\textbf{Kebutuhan Tambahan}}
+\begin{itemize}
+    \item Harus menggunakan varian struktur data Queue
+    \item Tidak boleh menggunakan fungsi sorting
+\end{itemize}
+
+\subsection*{Format Keluaran}
+
+Keluaran adalah sebuah bilangan bulat yang merupakan penilaian ke-K tertinggi dari peserta kontes.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+6 2
+3 2 1 5 6 4
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+5
+\end{lstlisting}
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+Dalam contoh ini, ada 6 peserta dengan penilaian sebagai berikut: 3, 2, 1, 5, 6, 4. Penilaian tertinggi kedua adalah 5.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 2}
+\begin{lstlisting}
+9 4
+3 2 3 1 2 4 5 5 6
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 2}
+\begin{lstlisting}
+4
+\end{lstlisting}
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+Dalam contoh kedua, ada 9 peserta dengan penilaian sebagai berikut: 3, 2, 3, 1, 2, 4, 5, 5, 6. Penilaian tertinggi keempat adalah 4.
+
+\end{document}
