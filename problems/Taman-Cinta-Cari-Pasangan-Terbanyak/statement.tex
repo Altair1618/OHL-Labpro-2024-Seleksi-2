@@ -1,0 +1,115 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+    \section*{Taman Cinta Danvile - Cari Penilaian Pasangan Terbanyak}
+    
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\ 
+        Batas Memori & 256MB \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Di Taman Cinta Danville, setiap peserta kontes ingin mencari pasangan sebanyak mungkin dengan jumlah penilaian tertentu. Setiap peserta, baik perempuan maupun laki-laki, memiliki nomor pada punggungnya yang bernilai antara $1$ hingga $K$. Panitia acara menginginkan untuk mencari pasangan (baik laki-laki dan perempuan, atau sesama jenis) yang nilainya berjumlah $K$. Jika mereka bernilai $K$, mereka akan dikeluarkan dari taman. 
+
+Tugas Anda adalah untuk membantu panitia mencari pasangan sebanyak mungkin dengan jumlah penilaian tepat $K$.
+
+\subsection*{Format Masukan}
+
+Masukan terdiri dari beberapa baris:
+\begin{itemize}
+    \item Baris pertama berisi dua bilangan bulat $N$ $(1 \leq N \leq 10^6)$ dan $K$ $(1 \leq K \leq 10^9)$, masing-masing menyatakan jumlah peserta dan penilaian pasangan yang ingin dicari.
+    \item Baris berikutnya berisi $N$ bilangan bulat yang merupakan penilaian dari setiap peserta kontes.
+\end{itemize}
+
+\subsection*{Format Keluaran}
+
+Keluaran adalah sebuah bilangan bulat yang merupakan jumlah operasi maksimum yang dapat Anda lakukan pada array.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+5 5
+1 2 3 4 3
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+2
+\end{lstlisting}
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+Dalam contoh ini, ada 5 peserta dengan penilaian sebagai berikut: 1, 2, 3, 4, 3. Pasangan-pasangan yang mungkin adalah:\\
+- 1 + 4 \\
+- 2 + 3 \\
+Jumlah maksimum operasi yang dapat dilakukan adalah 2.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 2}
+\begin{lstlisting}
+4 2
+1 1 1 1
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 2}
+\begin{lstlisting}
+2
+\end{lstlisting}
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+Dalam contoh kedua, ada 4 peserta dengan penilaian sebagai berikut: 1, 1, 1, 1. Pasangan-pasangan yang mungkin adalah:\\
+- 1 + 1 \\
+- 1 + 1 \\
+Jumlah maksimum operasi yang dapat dilakukan adalah 2.
+
+\end{document}
