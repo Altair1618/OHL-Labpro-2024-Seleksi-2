@@ -71,6 +71,16 @@ protected:
         });
     }
 
+    void SampleTestCase4() {
+        Input({
+            "2",
+            "1 2"
+        });
+        Output({
+            "1"
+        });
+    }
+
     void BeforeTestCase() {
         nodes.clear();
     }
