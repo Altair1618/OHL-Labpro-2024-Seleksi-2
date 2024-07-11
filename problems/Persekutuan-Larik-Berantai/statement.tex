@@ -1,0 +1,119 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Judul} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 3s \\    % jangan lupa ganti time limit
+        Batas Memori & 512MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Asep Spakbor sedang berlatih berbahasa Jawa, ia juga orang yang sangat gemar dengan berhitung. 
+
+Suatu saat ia sedang mengide untuk membuat program untuk menghitung FPB (Faktor Persekutuan Terbesar) dari dua bilangan. Akan tetapi agar lebih bervariasi, ia ingin membuat program tersebut dengan menggunakan konsep larik berantai. Dari sebuah larik berantai, Asep Spakbor ingin memasukkan sebuah bilangan hasil FPB diantara dua bilangan yang ada di dalam larik berantai tersebut.
+
+Asep Spakbor merasa kesusahan dalam membuat larik berantai dalam bahasa Jawa karena terbiasa dengan bahasa Assembly. Bantulah Asep Spakbor dalam membuat program tersebut dalam bahasa Jawa.
+
+Program juga harus dibuat dengan menggunakan prinsip OOP dan kelas larik berantai serta fungsi FPB harus dibuat sendiri. Selain output yang benar, kode program kalian juga akan dinilai secara manual.
+
+\textbf{Kamus:} \\
+Larik Berantai = Linked List \\
+FPB = GCD (Greatest Common Divisor) \\
+Jawa = Java \\
+
+\subsection*{Format Masukan}
+
+Baris pertama berisi sebuah bilangan bulat $N$ ($1 \leq N \leq 10^{5}$) yang menyatakan banyaknya elemen pada larik. Baris kedua berisi $N$ bilangan bulat yang menyatakan isi larik berantai di kondisi awal.
+
+\subsection*{Format Keluaran}
+
+1 baris yang berisi larik akhir dengan format
+[A[1], A[2], ..., A[n]]
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+5
+20 33 6 36 27
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+[20, 1, 33, 3, 6, 6, 36, 9, 27]
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 2}
+\begin{lstlisting}
+1
+99
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 2}
+\begin{lstlisting}
+[99]
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+Pada kasus 1, Angka 5 menunjukkan banyaknya bilangan yang akan dimasukkan ke dalam linked list. GCD dari 20 dan 33 adalah 1, maka 1 dimasukkan diantara 20 dan 33. GCD dari 33 dan 6 adalah 3, maka 3 dimasukkan diantara 33 dan 6 dan seterusnya.
+
+Pada kasus 2, tidak ada bilangan lain yang bisa dihitung GCD-nya, maka output sama dengan input.
+
+\end{document}
