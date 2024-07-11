@@ -23,13 +23,17 @@ void solve() {
 
         while (!s.empty() && s.top() >= x) s.pop();
         
-        if (s.empty()) prints(-1);
-        else prints(s.top());
+        if (i != n - 1) {
+            if (s.empty()) prints(-1);
+            else prints(s.top());
+        } else {
+            if (s.empty()) println(-1);
+            else println(s.top());
+        }
 
         s.push(x);
     }
 
-    newl();
     return;
 }
 
