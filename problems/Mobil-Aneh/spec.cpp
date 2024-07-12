@@ -156,33 +156,66 @@ private:
             }
         }
 
-        int s_row = rnd.nextInt(0, N-1);
-        int s_col = rnd.nextInt(0, M-1);
-        int t_row = rnd.nextInt(0, N-1);
-        int t_col = rnd.nextInt(0, M-1);
+        int s_row = rnd.nextInt(0, N - 1);
+        int s_col = rnd.nextInt(0, M - 1);
+
+        int t_row = rnd.nextInt(0, N - 1);
+        while (t_row == s_row) {
+            t_row = rnd.nextInt(0, N - 1);
+        }
+
+        int t_col = rnd.nextInt(0, M - 1);
+        while (t_col == s_col) {
+            t_col = rnd.nextInt(0, M - 1);
+        }
 
         mat[s_row][s_col] = 'S';
         mat[t_row][t_col] = 'T';
 
-        int start_row, start_col, end_row, end_col;
-        if (s_row < t_row) {
-            start_row = s_row;
-            start_col = s_col;
-            end_row = t_row;
-            end_col = t_col;
+        int rand = rnd.nextInt(1, 2);
+
+        pair<int, int> keypoint1, keypoint2;
+
+        if (rand == 1) {
+            keypoint1 = {rnd.nextInt(min(s_row, t_row), max(s_row, t_row)), s_col};
+
+            // Add path from s to keypoint1
+            for (int i = min(s_row, keypoint1.first); i <= max(s_row, keypoint1.first); i++) {
+                if (mat[i][s_col] != 'X') continue;
+                mat[i][s_col] = '.';
+            }
+
+            // Add path from keypoint1 to keypoint2
+            for (int i = min(s_col, t_col); i <= max(s_col, t_col); i++) {
+                if (mat[keypoint1.first][i] != 'X') continue;
+                mat[keypoint1.first][i] = '.';
+            }
+
+            // Add path from keypoint2 to t
+            for (int i = min(t_row, keypoint1.first); i <= max(t_row, keypoint1.first); i++) {
+                if (mat[i][t_col] != 'X') continue;
+                mat[i][t_col] = '.';
+            }
         } else {
-            start_row = t_row;
-            start_col = t_col;
-            end_row = s_row;
-            end_col = s_col;
-        }
+            keypoint1 = {s_row, rnd.nextInt(min(s_col, t_col), max(s_col, t_col))};
 
-        for (int i = start_row; i <= end_row; i++) {
-            if (mat[i][start_col] == 'X') mat[i][start_col] = '.';
-        }
+            // Add path from s to keypoint1
+            for (int i = min(s_col, keypoint1.second); i <= max(s_col, keypoint1.second); i++) {
+                if (mat[s_row][i] != 'X') continue;
+                mat[s_row][i] = '.';
+            }
 
-        for (int i = start_col; i < end_col; i++) {
-            if (mat[end_row][i] == 'X') mat[end_row][i] = '.';
+            // Add path from keypoint1 to keypoint2
+            for (int i = min(s_row, t_row); i <= max(s_row, t_row); i++) {
+                if (mat[i][keypoint1.second] != 'X') continue;
+                mat[i][keypoint1.second] = '.';
+            }
+
+            // Add path from keypoint2 to t
+            for (int i = min(t_col, keypoint1.second); i <= max(t_col, keypoint1.second); i++) {
+                if (mat[t_row][i] != 'X') continue;
+                mat[t_row][i] = '.';
+            }
         }
 
         for (int i = 0; i < N; i++) {

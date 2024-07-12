@@ -9,10 +9,10 @@ MEMORY_LIMIT=256
 alphabet=({A..Z})
 index=0
 # folders=$(ls -d $PROBLEM_PATH)
-folders=("problems/Taman-Cinta-Cari-Pasangan-Terbanyak")
+folders=("problems/Mobil-Aneh")
 for folder in $folders; do
     # letter=${alphabet[index]}
-    letter="TCP"
+    letter="MA"
     problem_name=$(basename "$folder")
 
     echo "Generating Problem $letter $problem_name"
