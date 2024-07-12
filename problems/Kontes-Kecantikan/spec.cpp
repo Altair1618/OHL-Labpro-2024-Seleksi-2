@@ -68,10 +68,18 @@ protected:
         CASE(N = 2, K = 1, nums = {1, 2});
         CASE(N = 2, K = 2, nums = {1, 2});
         CASE(N = 10, K = 5, nums = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1});
-        CASE(N = 100, K = 50, nums = generateRandomArray(100));
-        CASE(N = 1000, K = 500, nums = generateRandomArray(1000));
-        CASE(N = 10000, K = 10000, nums = generateRandomArray(10000));
-        CASE(N = 10000, K = 1, nums = generateRandomArray(10000));
+
+        for (int i = 0; i < 10; i++)
+            CASE(N = 100, K = 50, nums = generateRandomArray(100));
+
+        for (int i = 0; i < 10; i++)
+            CASE(N = 1000, K = 500, nums = generateRandomArray(1000));
+
+        for (int i = 0; i < 10; i++)
+            CASE(N = 10000, K = 10000, nums = generateRandomArray(10000));
+        
+        for (int i = 0; i < 10; i++)
+            CASE(N = 10000, K = 1, nums = generateRandomArray(10000));
     }
 
     vector<int> generateRandomArray(int size) {

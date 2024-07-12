@@ -1,0 +1,141 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Pemenang Permainan Putar-Putar} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 3s \\    % jangan lupa ganti time limit
+        Batas Memori & 512MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Purry the Platypus senang menonton sebuah variety show bernama The Walking Man. Pada sebuah episode, ada sebuah permainan yang disebut The Circling Survivor.  Pemain sejumlah N akan berdiri di atas sebuah lingkaran dan berjalan mengelilingi lingkaran tersebut.  Setiap pemain akan diberikan sebuah bilangan bulat positif K. 
+
+Pemain akan berjalan searah jarum jam dan setiap kali pemain berjalan sebanyak K langkah, pemain yang berada di posisi tersebut akan dikeluarkan dari permainan. Permainan akan berakhir ketika hanya tersisa satu pemain.
+
+Purry ingin membuat program untuk menentukan pemain mana yang akan bertahan di akhir permainan beserta dengan progress dalam permainan tersebut. Purry memiliki ketentuan bahwa program harus menggunakan konsep Larik Tertaut Melingkar. Purry juga ingin program tersebut dibuat dengan menggunakan prinsip PBO menggunakan bahasa Jawa.
+
+\textbf{Informasi Tambahan:} \\
+Pemain memiliki nomor terurut dari 1 \\
+Larik Tertaut Melingkar = Circular Linked List \\
+PBO = OOP (Object Oriented Programming) \\
+Jawa = Java \\
+
+\subsection*{Format Masukan}
+
+Baris pertama berisi sebuah bilangan bulat $N$ ($2 \leq N \leq 2 \times 10^{4}$) yang menyatakan jumlah pemain. Baris kedua berisi sebuah bilangan bulat $K$ ($1 \leq K < N$) yang menyatakan banyak langkah yang hingga seorang pemain dikeluarkan.
+
+\subsection*{Format Keluaran}
+
+$N - 1$ baris berisi bilangan bulat yang menyatakan pemain yang dikeluarkan setiap K langkah terlalui. Lalu, 1 baris terakhir berisi "Survivor: (Pemain Terakhir)".
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+7
+3
+\end{lstlisting}
+\vfill
+\null
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+3
+6
+2
+7
+5
+1
+Survivor: 4
+\end{lstlisting}
+\end{multicols}
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 2}
+\begin{lstlisting}
+5
+3
+\end{lstlisting}
+\vfill
+\null
+\columnbreak
+\subsection*{Contoh Keluaran 2}
+\begin{lstlisting}
+3
+1
+5
+2
+Survivor: 4
+\end{lstlisting}
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Penjelasan untuk contoh 1 adalah sebagai berikut.
+
+Ada 7 pemain yang berjalan searah jarum jam. Setiap pemain akan dikeluarkan setiap 3 langkah. Urutan pemain adalah sebagai berikut: \\
+1) 1 2 3 4 5 6 7  \\
+- Pemain ke-3 dikeluarkan \\
+- Perhitungan dimulai dari pemain ke-4, karena pemain yang dikeluarkan sebelumnya adalah 3 \\
+2) 1 2 4 5 6 7 \\
+- Pemain ke-6 dikeluarkan \\
+- Perhitungan dimulai dari pemain ke-7, karena pemain yang dikeluarkan sebelumnya adalah 6 \\
+3) 1 2 4 5 7 \\
+- Pemain ke-2 dikeluarkan \\
+4) 1 4 5 7 \\
+5) 1 4 5 \\
+6) 1 4 \\
+7) 4 \\
+- Pemain ke-4 adalah pemenangnya
+
+\end{document}

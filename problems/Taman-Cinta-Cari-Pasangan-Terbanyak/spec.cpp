@@ -5,8 +5,8 @@ using namespace std;
 
 class ProblemSpec : public BaseProblemSpec {
 protected:
-    const int NMAX = 10e5;
-    const int KMAX = 10e9;
+    const int NMAX = 1e5;
+    const int KMAX = 1e9;
 
     int N, K;
     vector<int> nums;
@@ -29,7 +29,7 @@ protected:
     void Constraints() {
         CONS(1 <= N && N <= NMAX);
         CONS(1 <= K && K <= KMAX);
-        CONS(validArray(nums, n));
+        CONS(validArray(nums, N));
     }
 
     bool validArray(const vector<int>& nums, int n) {
@@ -88,13 +88,23 @@ protected:
     }
 
     void TestCases() {
-        CASE(n = 1, k = 1, nums = {1});
-        CASE(n = 2, k = 2, nums = {1, 1});
-        CASE(n = 10, k = 10, nums = generateRandomArray(10, 1, 10));
-        CASE(n = 100, k = 50, nums = generateRandomArray(100, 1, 50));
-        CASE(n = 1000, k = 500, nums = generateRandomArray(1000, 1, 500));
-        CASE(n = 10000, k = 1000, nums = generateRandomArray(10000, 1, 1000));
-        CASE(n = 100000, k = 100000, nums = generateRandomArray(100000, 1, 100000));
+        CASE(N = 1, K = 1, nums = {1});
+        CASE(N = 2, K = 2, nums = {1, 1});
+
+        for (int i = 0; i < 10; i++)
+            CASE(N = 10, K = 10, nums = generateRandomArray(10, 1, 10));
+
+        for (int i = 0; i < 10; i++)
+            CASE(N = 100, K = 50, nums = generateRandomArray(100, 1, 50));
+
+        for (int i = 0; i < 10; i++)
+            CASE(N = 1000, K = 500, nums = generateRandomArray(1000, 1, 500));
+        
+        for (int i = 0; i < 10; i++)
+            CASE(N = 10000, K = KMAX, nums = generateRandomArray(10000, 1, KMAX));
+        
+        for (int i = 0; i < 10; i++)
+            CASE(N = 100000, K = KMAX, nums = generateRandomArray(100000, 1, KMAX));
     }
 
     vector<int> generateRandomArray(int size, int minValue, int maxValue) {

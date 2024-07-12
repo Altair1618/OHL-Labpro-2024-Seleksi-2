@@ -1,0 +1,103 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Chipipi Chapapa}
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\
+        Batas Memori & 64MB \\
+        \hline
+    \end{tabular}
+
+    % Tag: OOP Konseptual
+    % Difficulty: Easy
+    
+\end{center}
+
+\subsection*{Deskripsi}
+
+Purry sedang mempelajari OOP menggunakan bahasa Chipipi (C++). Ia pun menemukan sebuah teka-teki yang berjudul "Chipipi Chapapa". Dalam teka-teki ini, terdapat 6 kelas sesuai yang ada pada kode \href{https://drive.google.com/file/d/14HL7qtTQEweuAHRCAryBxWxXb4_PrH0d/view?usp=drive_link}{berikut}. Simpelnya, diberikan dua bilangan bulat positif, yaitu \textit{m} dan \textit{n}. Purry diminta untuk membuat program yang dapat menghasilkan luaran berupa \(-m\) dan \(-2n\) serta sebuah \textit{string custom} "Wrapper". Namun, Purry hanya dapat menggunakan apa yang sudah ada pada kode tersebut.
+
+\subsection*{Format Masukan}
+
+Masukan berupa 1 baris yang berisi dua integer positif \textit{m} dan \textit{n} dengan format \textit{m} \textit{n}, dengan batas \(1 \leq m, n \leq 100\).
+
+\subsection*{Format Keluaran}
+
+Keluaran berupa 2 baris dengan baris pertama adalah \(-m\) \(-2n\) dan baris kedua adalah \textit{string} "Wrapper".
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+1 2
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+-1 -4
+Wrapper
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+\(a = 1\) dan \(b = 2\), maka \(-a = -1\) dan \(-2b = -4\). Luaran \textit{string} "Wrapper" dikeluarkan secara \textit{custom} lewat program.
+
+\subsection*{Catatan}
+
+\begin{enumerate}
+    \item Salin seluruh kode, lalu tulis perubahan hanya pada bagian yang telah disediakan di fungsi \(main()\). \textbf{Dilarang memodifikasi kode yang ada di atasnya!}
+    \item Untuk melakukan \textit{output}, gunakan fungsi/metode yang telah dituliskan pada kode (seperti \(B::print()\)). Anda dilarang untuk menggunakan fungsi/metode lain untuk melakukan \textit{output} (seperti \(printf()\) dan \(cout <<\)) di dalam fungsi \(main()\). 
+    \item Dilarang menggunakan \textit{scope resolution operator} (::). Silakan manfaatkan konsep \textit{inheritance} dan \textit{polymorphism}.
+\end{enumerate}
+
+\end{document}
