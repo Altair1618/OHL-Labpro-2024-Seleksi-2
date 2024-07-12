@@ -39,8 +39,6 @@ TreeNode* buildTree(const vector<int>& nodes) {
     return root;
 }
 
-using namespace std;
-
 class Solution {
 public:
     int maxi = 0;
