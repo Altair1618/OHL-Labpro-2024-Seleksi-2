@@ -1,0 +1,132 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Misi Rahasia OWCA}
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Memori & 256MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+
+    % Tag: Graf, Shortest Path
+    % Difficulty: Hard
+    
+\end{center}
+
+\subsection*{Deskripsi}
+
+Saat ini, OWCA sedang menjalankan misi rahasia untuk mengejar Dr. Dufensmrizz. Dalam misi ini, OWCA terbagi menjadi dua pasukan besar, yaitu Pasukan \(\alpha\) dan Pasukan \(\sigma\). Keduanya memiliki lokasi markas yang terpisah, namun sama-sama bertujuan untuk menyerang markas Dr. Dufensmrizz.\newline
+Untuk dapat mencapai markas Dr. Dufensmrizz, masing-masing pasukan harus melewati jalur-jalur antar lokasi. Untuk menjaga keamanan pasukan, Mr. Monogyatt\textemdash Ketua OWCA\textemdash mewajibkan pembangunan satu pos pengawasan untuk setiap jalur yang akan dilewati oleh kedua pasukan. Setiap jalur memiliki biaya pembangunan posnya masing-masing.\newline
+Jika dimodelkan sebagai graf, dapat dilihat bahwa lokasi adalah simpul, jalur adalah sisi, dan biaya pembangunan masing-masing jalur adalah beban masing-masing sisi. Sebagai insinyur di OWCA, Anda diminta untuk menghitung total beban (biaya pembangunan pos) upagraf minimum agar Pasukan \(\alpha\) dan Pasukan \(\sigma\) dapat mencapai markas Dr. Dufensmrizz dengan pengawasan di setiap jalurnya.
+
+\subsection*{Format Masukan}
+
+Baris pertama memiliki format \textit{v} \textit{e}, yang masing-masing menyatakan banyak lokasi dan jalur pada peta. \textit{e} baris selanjutnya memiliki format \(v_{from}\) \(v_{to}\) \(w\), yang menyatakan bahwa ada jalur dari lokasi \(v_{from}\) ke lokasi \(v_{to}\) dengan biaya pembangunan pos sebesar \(w\). Baris selanjutnya memiliki format \(v_{\alpha}\) \(v_{\sigma}\) \(v_{d}\) yang menyatakan simpul yang menjadi lokasi markas Pasukan \(\alpha\), markas Pasukan \(\sigma\), dan markas Dr. Dufensmrizz.\newline
+Berikut batasan untuk nilai yang dimasukkan.
+\begin{itemize}
+    \item \(3 \leq v \leq 10^5\)
+    \item \(0 \leq e \leq 10^5\)
+    \item \textit{Indexing} simpul dimulai dari 0 hingga \(v - 1\)
+    \item Simpul \(v_{\alpha}, v_{\sigma}, v_d\) dipastikan ada di dalam graf
+    \item Dalam 1 jalur, berlaku \(v_{from} \neq v_{to}\) dan \(1 \leq w \leq 10^5\)
+    \item Simpul \(v_{\alpha}, v_{\sigma}, v_d\) berbeda seluruhnya
+\end{itemize}
+
+\subsection*{Format Keluaran}
+
+Sebuah bilangan yang menyatakan total beban (biaya pembangunan pos) upagraf minimum agar Pasukan \(\alpha\) dan Pasukan \(\sigma\) dapat mencapai markas Dr. Dufensmrizz dengan pengawasan di setiap jalurnya. Keluarkan -1 jika tidak ada.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+6 9
+0 2 2
+0 5 6
+1 0 3
+1 4 5
+2 1 1
+2 3 3
+2 3 4
+3 4 2
+4 5 1
+0 1 5
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+9
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 2}
+\begin{lstlisting}
+3 2
+0 1 2
+2 1 1
+0 1 2
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 2}
+\begin{lstlisting}
+-1
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Perhatikan gambar \href{https://drive.google.com/file/d/125irwUk3SfLVxAFUN1jNmSnUMezxY975/view?usp=drive_link}{berikut}. Garis yang tidak putus-putus adalah jalur yang menjadi (salah satu) upagraf yang optimal pada persoalan ini. Pada contoh pertama, totalnya adalah 9. Pada contoh kedua, tidak ada jalur yang dapat menghubungkan markas Pasukan \(\alpha\) dan markas Pasukan \(\sigma\) ke markas Dr. Dufensmrizz sehingga hasilnya adalah -1.
+
+\end{document}

@@ -1,0 +1,121 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Sipaling Coquette}
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\
+        Batas Memori & 64MB \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Purry akhir-akhir ini sangat menyukai gaya \textit{coquette}. Semuanya ia jadikan berbentuk pita. Hingga suatu hari, Purry mendapatkan tugas untuk menganalisis \textit{n} data titik koordinat (\textit{x}, \textit{y}) yang menyatakan lokasi musuh-musuh Purry. Alih-alih bekerja, Purry lebih memilih untuk menyusun Pita Coquette dari titik-titik ini.\newline
+Pita Coquette adalah pita yang memiliki ketentuan sebagai berikut.
+\begin{enumerate}
+    \item Terbentuk dari 4 titik
+    \item Luas area \(> 0\)
+    \item Berbentuk simetris, dengan rasio panjang dan tinggi sebesar 2 : 1
+    \item Bagian pinggirnya sejajar dengan sumbu y
+\end{enumerate}
+
+Untuk lebih jelasnya, dapat lihat ilustrasi \href{https://drive.google.com/file/d/1eYyaiV1-mpoYWLuBTnvTJsZTsRzAdQep/view?usp=drive_link}{berikut}.
+
+Karena tidak bisa menghitung, Purry meminta bantuan Anda. Purry akan memberikan sebuah koordinat target kepada Anda. Anda diminta untuk menghitung banyak Pita Coquette yang dapat dibentuk dengan titik-titik yang ada pada data koordinat musuh, dengan salah satu titiknya berkoordinat sama dengan target.
+
+\subsection*{Format Masukan}
+
+\begin{itemize}
+    \item Baris pertama merupakan bilangan bulat \textit{n} yang menyatakan banyak titik (\(4 \leq n \leq 10^5\)).
+    \item \textit{n} baris selanjutnya merupakan bilangan-bilangan bulat yang menyatakan data koordinat musuh yang dituliskan dalam bentuk \textit{x y} (\(0 \leq x, y \leq 1000\)). Titik-titik pada data koordinat musuh tidak harus unik. Jika terdapat duplikat, duplikat tersebut dianggap sebagai titik yang berbeda.
+    \item Baris selanjutnya adalah koordinat target dalam bentuk \(x_{target}\) \(y_{target}\) (\(0 \leq x_{target}, y_{target} \leq 1000\)). Koordinat target belum tentu ada dalam data koordinat musuh.
+\end{itemize}
+
+\subsection*{Format Keluaran}
+
+Sebuah bilangan yang menyatakan banyak Pita Coquette yang dapat dibentuk dengan titik-titik yang ada pada data koordinat musuh, dengan salah satu titiknya berkoordinat sama dengan target. Jika koordinat target tidak ada dalam data koordinat musuh, kembalikan 0.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+8
+0 0
+0 1
+2 1
+2 0
+2 1
+0 2
+4 2
+4 0
+0 0
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+3
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Misalkan kedelapan titik tersebut disimbolkan sebagai 
+\(p_0=(0,0), p_1=(0,1), p_2=(2,1), p_3=(2,0), p_4=(2,1), p_5=(0,2), p_6=(4,2), p_7=(4,0)\)
+Maka, Pita Coquette yang melalui \((0,0)\) dapat dibentuk melalui titik:
+\begin{enumerate}
+    \item \(p_0\), \(p_1\), \(p_3\), dan \(p_2\)
+    \item \(p_0\), \(p_1\), \(p_3\), dan \(p_4\)
+    \item \(p_0\), \(p_5\), \(p_7\), dan \(p_6\)
+\end{enumerate}
+
+\end{document}
