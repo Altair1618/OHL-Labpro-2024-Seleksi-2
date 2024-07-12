@@ -92,9 +92,18 @@ protected:
         CASE(N = 7, nodes = {1, 2, 3, -1, 4, -1, -1});
         CASE(N = 15, nodes = generateCompleteBinaryTree(15));
         CASE(N = 31, nodes = generateCompleteBinaryTree(31));
-        CASE(N = 100, nodes = generateRandomBinaryTree(100));
-        CASE(N = 1000, nodes = generateRandomBinaryTree(1000));
-        CASE(N = 10000, nodes = generateRandomBinaryTree(10000));
+        
+        for (int i = 0; i < 10; ++i)
+            CASE(N = 100, nodes = generateRandomBinaryTree(100));
+        
+        for (int i = 0; i < 10; ++i)
+            CASE(N = 1000, nodes = generateRandomBinaryTree(1000));
+        
+        for (int i = 0; i < 10; ++i)
+            CASE(N = 10000, nodes = generateRandomBinaryTree(10000));
+
+        for (int i = 0; i < 10; ++i)
+            CASE(N = 50000, nodes = generateRandomBinaryTree(50000));
     }
 
     vector<int> generateCompleteBinaryTree(int size) {
