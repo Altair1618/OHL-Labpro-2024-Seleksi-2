@@ -1,0 +1,139 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx, eso-pic}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
+\renewcommand{\headrulewidth}{0pt}
+
+\rfoot{\thepage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\textbf{OHL Labpro 2024}}
+\pagenumbering{gobble}
+
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+
+    
+    \section*{Labirin Berportal} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 2s \\    % jangan lupa ganti time limit
+        Batas Memori & 256MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Purry dan agen-agen lainnya sedang terperangkap dalam labirin buatan Dr. Asep Spakbor. Meskipun labirinnya sangat rumit, Purry berhasil mendapatkan peta labirin setelah melakukan \textit{exploit} pada komputer Dr. Asep Spakbor. 
+
+Setelah melakukan analisis pada peta, Purry telah menentukan jalur yang akan mereka lalui. Namun, pada jalur yang mereka lalui, ada $N$ portal yang dapat mengembalikan mereka ke suatu lokasi yang telah mereka lalui. Portal ke-$i$ berada dalam posisi $x_i$ dan akan mengembalikan Purry ke posisi $y_i$ dimana $y_i < x_i$.
+
+Setiap portal dapat berada dalam 2 \textit{state} yaitu aktif atau tidak aktif. Apabila Purry melalui portal yang aktif, Purry akan kembali ke posisi $y_i$ dan portalnya menjadi tidak aktif. Sebaliknya, apabila Purry melalui portal yang tidak aktif, Purry dapat bergerak ke posisi $x_i + 1$ dan portal menjadi aktif.
+
+Tentukan berapa jarak yang harus ditempuh Purry dan agen OWCA lainnya untuk mencapai pintu keluar yang berada di posisi $K$ dari posisi awal mereka yaitu $0$. Karena jawabannya dapat menjadi sangat besar, keluarkan dalam modulo $998244353$.
+
+\subsection*{Format Masukan}
+
+Baris pertama terdiri dari dua bilangan bulat positif $N$ ($1 \leq N \leq 2 \times 10^{5}$) dan $K$ ($2 \times N < K \leq 10^{9}$) yang masing-masing menyatakan banyak portal dan lokasi pintu keluar.
+
+$N$ baris berikutnya berisi 3 bilangan $x_i$ ($2 \leq x_i < K$), $y_i$ ($1 \leq y_i < x_i$), dan $b_i$ ($0 \leq b_i \leq 1$) yang masing-masing menyatakan lokasi portal, posisi akhir Purry setelah teleportasi, dan \textit{state} awal portal tersebut (0 menyatakan tidak aktif dan 1 menyatakan aktif)
+
+Nilai $x_i$ akan selalu terurut menaik yaitu $x_1 < x_2 < x_3 < ... < x_n$. Nilai $x_i$ dan $y_i$ dipastikan seluruhnya unik (tidak ada yang memiliki nilai sama).
+
+\subsection*{Format Keluaran}
+
+Keluarkan jarak yang harus ditempuh Purry untuk mencapai pintu keluar dalam jalur tersebut dari posisi awal $0$. Karena jawabannya dapat menjadi sangat besar, keluarkan dalam modulo $998244353$.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+4 9
+3 2 1
+6 5 0
+7 4 0
+8 1 1
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+23
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 2}
+\begin{lstlisting}
+5 1000000000
+199999999 100000000 1
+599999999 400000000 0
+799999999 300000000 0
+899999999 700000000 1
+999999999 500000000 0
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 2}
+\begin{lstlisting}
+3511290
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+Berikut adalah penjelasan untuk contoh 1: \\
+- Posisi: 0, Total Jarak: 0. \\
+- Posisi: 3, Total Jarak: 3. Disini Purry akan terteleportasi ke posisi 2 karena portal ini aktif. \\
+- Posisi: 2, Total Jarak: 3. \\
+- Posisi: 3, Total Jarak: 4. Disini Purry tidak akan terteleportasi karena portal tidak lagi aktif. \\
+- Posisi: 8, Total Jarak: 9. \\
+- Posisi: 1, Total Jarak: 9. \\
+- Posisi: 3, Total Jarak: 11. \\
+- Posisi: 2, Total Jarak: 11. \\
+- Posisi: 6, Total Jarak: 15. \\
+- Posisi: 5, Total Jarak: 15. \\
+- Posisi: 7, Total Jarak: 17. \\
+- Posisi: 4, Total Jarak: 17. \\
+- Posisi: 6, Total Jarak: 19. \\
+- Posisi: 5, Total Jarak: 19. \\
+- Posisi: 9, Total Jarak: 23. \\
+
+Maka, total jarak yang harus ditempuh Purry adalah 23.
+
+\end{document}

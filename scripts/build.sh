@@ -3,16 +3,16 @@
 PROBLEM_PATH="problems/*"
 GENERATOR_PATH="scripts/generate-problem.sh"
 OUTPUT_PATH="results"
-TIME_LIMIT=1
-MEMORY_LIMIT=64
+TIME_LIMIT=2
+MEMORY_LIMIT=256
 
 alphabet=({A..Z})
 index=0
 # folders=$(ls -d $PROBLEM_PATH)
-folders=("problems/Chipipi-Chapapa")
+folders=("problems/Labirin-Berportal")
 for folder in $folders; do
     # letter=${alphabet[index]}
-    letter="CC"
+    letter="LB"
     problem_name=$(basename "$folder")
 
     echo "Generating Problem $letter $problem_name"
