@@ -193,17 +193,17 @@ void splitChild(Node *node, int i) {
         node->keys[i] = child->keys[start];
         node->numKeys++;
     } else {
-        int start = (child->degree + 1) / 2;
+        int start = child->degree / 2;
 
-        newChild->numKeys = child->degree - start;
-        child->numKeys = start - 1;
+        newChild->numKeys = child->degree - start - 1;
+        child->numKeys = start;
 
         for (int j = 0; j < newChild->numKeys; j++) {
-            newChild->keys[j] = child->keys[j + start];
+            newChild->keys[j] = child->keys[j + start + 1];
         }
 
         for (int j = 0; j < newChild->numKeys + 1; j++) {
-            newChild->children[j] = child->children[j + start];
+            newChild->children[j] = child->children[j + start + 1];
         }
 
         newChild->next = child->next;
@@ -217,7 +217,7 @@ void splitChild(Node *node, int i) {
         for (int j = node->numKeys - 1; j >= i; j--) {
             node->keys[j + 1] = node->keys[j];
         }
-        node->keys[i] = child->keys[start - 1];
+        node->keys[i] = child->keys[start];
         node->numKeys++;
     }
 }
